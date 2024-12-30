@@ -15,8 +15,5 @@
       become: yes
       become_user: root
 
-    - name: Deploy Docker Image
-      docker_container:
-        name: myproject_container
-        image: "parvatha29/myproject1:{{ BUILD_NUMBER }}"
-        state: started
+    - name: Deploy Docker Container
+      command: docker run -itd -P parvatha29/project1:{{ BUILD_NUMBER }}
